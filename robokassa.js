@@ -28,10 +28,11 @@ Robokassa.prototype.merchantUrl = function(order) {
 	var crcOpts = [this.login, order.summ, order.id];
 
 	var query = {
-		MrchLogin: this.login,
+		MerchantLogin: this.login,
 		OutSum: order.summ,
 		InvId: order.id,
-		Desc: order.description
+		Desc: order.description,
+		IsTest: 1
 	};
 
 	if (order.currency) {
