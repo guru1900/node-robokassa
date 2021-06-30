@@ -41,7 +41,6 @@ Robokassa.prototype.merchantUrl = function(order) {
 	if (order.lang) query.Culture = order.lang;
 
 	crcOpts.push(this.pass1);
-	crcOpts.push(this.pass2);
 
 	if (userParams.length > 0) {
 		for (var i = 0; i < userParams.length; i++) {
