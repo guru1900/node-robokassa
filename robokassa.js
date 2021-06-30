@@ -24,11 +24,12 @@ Robokassa.prototype.merchantUrl = function(order) {
 
 
 	var userParams = extractUserParams(order, this.paramPrefix);
-	var crcOpts = [this.login, order.summ];
+	var crcOpts = [this.login, order.summ, 5];
 
 	var query = {
 		MerchantLogin: this.login,
 		OutSum: order.summ,
+		InvId: 5,
 		Desc: order.description,
 		IsTest: 1
 	};
@@ -40,7 +41,8 @@ Robokassa.prototype.merchantUrl = function(order) {
 
 	if (order.lang) query.Culture = order.lang;
 
-	crcOpts.push(this.pass2);
+	crcOpts.push(this.pass1);
+
 
 	query.SignatureValue = hash(crcOpts.join(':'), this.hashType);
 
