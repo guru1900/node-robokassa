@@ -40,7 +40,7 @@ Robokassa.prototype.merchantUrl = function(order) {
 
 	if (order.lang) query.Culture = order.lang;
 
-	crcOpts.push(this.pass1);
+	crcOpts.push(this.pass2);
 
 	query.SignatureValue = hash(crcOpts.join(':'), this.hashType);
 
