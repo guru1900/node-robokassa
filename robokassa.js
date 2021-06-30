@@ -42,14 +42,6 @@ Robokassa.prototype.merchantUrl = function(order) {
 
 	crcOpts.push(this.pass1);
 
-	if (userParams.length > 0) {
-		for (var i = 0; i < userParams.length; i++) {
-			var key = userParams[i];
-			crcOpts.push('shp' + key + '=' + order[key]);
-			query['shp' + key] = order[key];
-		}
-	}
-
 	query.SignatureValue = hash(crcOpts.join(':'), this.hashType);
 
 	return this.url + '?' + queryStr(query);
