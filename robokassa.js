@@ -30,8 +30,7 @@ Robokassa.prototype.merchantUrl = function(order) {
 		MerchantLogin: this.login,
 		OutSum: order.summ,
 		InvId: 5,
-		Desc: order.description,
-		IsTest: 1
+		Desc: order.description
 	};
 
 	if (order.currency) {
