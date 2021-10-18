@@ -24,12 +24,12 @@ Robokassa.prototype.merchantUrl = function(order) {
 
 
 	var userParams = extractUserParams(order, this.paramPrefix);
-	var crcOpts = [this.login, order.summ, 5];
+	var crcOpts = [this.login, order.summ, order.invId];
 
 	var query = {
 		MerchantLogin: this.login,
 		OutSum: order.summ,
-		InvId: 5,
+		InvId: order.invId,
 		Desc: order.description
 	};
 
